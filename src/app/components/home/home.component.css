@@ -1,0 +1,29 @@
+.option {
+    width: 30%;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 30px;
+    padding: 10px;
+    text-align: center;
+}
+
+.description-container {
+    background-color: rgba(62, 114, 209, 0.258);
+    border-radius: 20px;
+    padding: 5px;
+    color: black;
+}
+
+.option-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    height: 100vh;
+}
+
+.card-image {
+    img{
+        width: 45%;
+        border-radius: 40px;
+    }
+}

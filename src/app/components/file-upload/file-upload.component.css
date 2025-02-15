@@ -1,0 +1,23 @@
+header {
+    color: white;
+    text-align: center;
+    height: 20vh;
+}
+
+.file-upoload-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.upload-button {
+    margin-top: 15px;
+}   
+
+i {
+    font-size: 6rem;
+    color: white;
+    margin-bottom: 25px;
+}

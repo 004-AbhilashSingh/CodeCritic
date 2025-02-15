@@ -7,7 +7,9 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "ci-build-windows": "ng build --configuration production"
+    "ci-build": "ng build --configuration production",
+    "copy-resources": "Copy-Item -Path \"dist/code-critic/browser/*\" -Destination \"src/main/resources/static\" -Recurse",
+    "clean-resources": "Remove-Item -Path \"src/main/resources/static/*\" -Recurse -Force"
   },
   "private": true,
   "dependencies": {
@@ -20,6 +22,7 @@
     "@angular/platform-browser-dynamic": "^19.1.0",
     "@angular/router": "^19.1.0",
     "@primeng/themes": "^19.0.6",
+    "primeicons": "^7.0.0",
     "primeng": "^19.0.6",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
