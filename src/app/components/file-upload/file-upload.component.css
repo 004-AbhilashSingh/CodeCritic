@@ -5,6 +5,7 @@ header {
 }
 
 .file-upoload-container {
+    width: 50%;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -20,4 +21,20 @@ i {
     font-size: 6rem;
     color: white;
     margin-bottom: 25px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.code-container{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

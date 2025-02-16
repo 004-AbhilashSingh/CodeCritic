@@ -12,6 +12,7 @@
     border-radius: 20px;
     padding: 5px;
     color: black;
+    cursor: pointer;
 }
 
 .option-container {
