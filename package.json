@@ -7,9 +7,9 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "ci-build": "ng build --configuration production",
-    "copy-resources": "Copy-Item -Path \"dist/code-critic/browser/*\" -Destination \"src/main/resources/static\" -Recurse",
-    "clean-resources": "Remove-Item -Path \"src/main/resources/static/*\" -Recurse -Force"
+    "ci-build": "ng build --configuration production && npm run clean-resources && npm run copy-resources",
+    "copy-resources": "cp -r dist/code-critic/browser/* src/main/resources/static/",
+    "clean-resources": "rm -rf src/main/resources/static/*"
   },
   "private": true,
   "dependencies": {

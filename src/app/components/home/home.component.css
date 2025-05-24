@@ -28,3 +28,25 @@
         border-radius: 40px;
     }
 }
+
+.user-details {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    text-align: center;
+    width: 30%;
+    margin: 0 35%;
+    margin-top: 30px;
+}
+
+.user-image{
+    img{
+        width: 20%;
+        border: 5px solid black;
+        border-radius: 100px;
+    }
+}
+
+.user-name{
+    font-size: x-large;
+}
