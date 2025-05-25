@@ -7,10 +7,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { appConfig } from './app.config';
+import { RepositoryListComponent } from './components/repository-list/repository-list.component';
+import { PullRequestListComponent } from './components/pull-request-list/pull-request-list.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    RepositoryListComponent,
+    PullRequestListComponent
   ],
   imports: [
     BrowserModule,

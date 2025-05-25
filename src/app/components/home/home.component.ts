@@ -23,6 +23,10 @@ export class HomeComponent {
     this.router.navigate(['/uploadFile']);
   }
 
+  goToRepositories() {
+    this.router.navigate(['/repositories']);
+  }
+
   getUserName():Promise<string> {
       return fetch('/getUserName',{
         method: 'GET',
@@ -52,4 +56,5 @@ export class HomeComponent {
         }
       })
   }
+
 }

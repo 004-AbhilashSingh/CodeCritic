@@ -1,0 +1,12 @@
+.repository-list{
+    height: 100vh;
+    text-align: center;
+    overflow: scroll;
+}
+
+.repository-list-items {
+    border: 3px solid black;
+    margin: 4px;
+    font-size: large;
+    border-radius: 15px;
+}

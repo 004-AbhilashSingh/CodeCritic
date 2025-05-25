@@ -1,38 +1,53 @@
 package com.codeCritic.codeCritic.controllers;
 
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.oauth2.core.user.OAuth2User;
+import com.codeCritic.codeCritic.services.AuthenticationService;
+import com.codeCritic.codeCritic.services.GithubService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Map;
+
 
 @RestController
 public class UserDetailsController {
 
+    private final AuthenticationService authenticationService;
+    private final GithubService githubService;
+
+    public UserDetailsController(AuthenticationService authenticationService, GithubService githubService) {
+        this.authenticationService = authenticationService;
+        this.githubService = githubService;
+    }
+
     @GetMapping("/getUserName")
     public String getUserName() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if(authentication != null && authentication.isAuthenticated()){
-            OAuth2User user = (OAuth2User) authentication.getPrincipal();
-            Map<String,Object> userDetails;
-            userDetails = user.getAttributes();
-            return userDetails.get("name").toString();
+        Map<String, Object> userDetails = authenticationService.getUserDetails();
+        if (userDetails != null && userDetails.containsKey("name")) {
+            return (String) userDetails.get("name");
         }
         return "User not authenticated";
     }
 
     @GetMapping("/getUserImageUrl")
     public String getUserImageUrl() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if(authentication != null && authentication.isAuthenticated()){
-            OAuth2User user = (OAuth2User) authentication.getPrincipal();
-            Map<String,Object> userDetails;
-            userDetails = user.getAttributes();
-            return userDetails.get("avatar_url").toString();
+        Map<String, Object> userDetails = authenticationService.getUserDetails();
+        if (userDetails != null && userDetails.containsKey("avatar_url")) {
+            return (String) userDetails.get("avatar_url");
         }
         return "";
+    }
+
+    @GetMapping("/getUserRepositories")
+    public Object getUserRepositories() {
+        return githubService.getRepositories();
+    }
+
+    @PostMapping("/getUserPullRequests")
+    public Object getUserPullRequests(@RequestBody String repository) {
+        return githubService.getPullRequests(repository);
     }
 
 }
