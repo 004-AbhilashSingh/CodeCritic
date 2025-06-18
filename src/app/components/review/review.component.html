@@ -1,0 +1,33 @@
+
+<div class="overall-review">
+    <h3>Overall Review</h3>
+    {{ overallReview }}
+</div>
+<div class="positives">
+    <h3>Positives</h3>
+    <ul class="positive-item">
+        @for(positive of positives;track positive){
+            <li>{{positive}}</li>
+        }
+    </ul>
+</div>
+<div class="negatives">
+    <h3>Negatives</h3>
+    <ul class="negative-item">
+        @for(negative of negatives;track negative){
+            <li>{{negative}}</li>
+        }
+    </ul>
+</div>
+<div class="suggestions">
+    <h3>Suggestions</h3>
+    <ul class="suggestions">
+        @for(suggestion of suggestions;track suggestion){
+            <li>{{suggestion}}</li>
+        }
+    </ul>
+</div>
+<div class="Score">
+    <h3>Score</h3>
+    <h4>{{Score}}</h4>
+</div>
