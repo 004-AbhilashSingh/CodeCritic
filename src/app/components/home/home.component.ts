@@ -24,7 +24,7 @@ export class HomeComponent {
   }
 
   goToRepositories() {
-    this.router.navigate(['/repositories']);
+    this.router.navigate(['/pullRequests']);
   }
 
   getUserName():Promise<string> {

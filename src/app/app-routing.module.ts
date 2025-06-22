@@ -4,12 +4,14 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
 import { HomeComponent } from './components/home/home.component';
 import { RepositoryListComponent } from './components/repository-list/repository-list.component';
 import { PullRequestListComponent } from './components/pull-request-list/pull-request-list.component';
+import { PullRequestDiffComponent } from './components/pull-request-diff/pull-request-diff.component';
 
 const routes: Routes = [
   {path:'', component: HomeComponent},
   {path:'uploadFile', component: FileUploadComponent},
   {path:'repositories', component: RepositoryListComponent},
-  {path: 'pullRequests', component: PullRequestListComponent}, // Assuming this is the same component for pull requests
+  {path: 'pullRequests', component: PullRequestListComponent}, 
+  {path: 'pullRequestDetails', component: PullRequestDiffComponent},
 ];
 
 @NgModule({

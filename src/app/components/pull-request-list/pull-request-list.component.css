@@ -1,0 +1,17 @@
+.pull-request-list {
+    border: 2px solid black;
+    width: fit-content;
+    border-radius: 10px;
+    padding: 10px;
+    margin: auto;
+}
+
+td{
+    border: 1px solid black;
+    padding: 5px;
+}
+
+th{
+    border: 1px solid black;
+    padding: 5px;
+}

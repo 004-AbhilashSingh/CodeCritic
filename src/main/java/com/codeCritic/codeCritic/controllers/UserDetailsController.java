@@ -1,5 +1,6 @@
 package com.codeCritic.codeCritic.controllers;
 
+import com.codeCritic.codeCritic.models.DiffRequest;
 import com.codeCritic.codeCritic.services.AuthenticationService;
 import com.codeCritic.codeCritic.services.GithubService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -50,4 +51,18 @@ public class UserDetailsController {
         return githubService.getPullRequests(repository);
     }
 
+    @GetMapping("/getUserOrgs")
+    public Object getUserOrgs() {
+        return githubService.getUserOrgs();
+    }
+
+    @PostMapping("/getOrgRepositories")
+    public Object getOrgRepositories(@RequestBody String orgName) {
+        return githubService.getOrgRepositories(orgName);
+    }
+
+    @PostMapping("/getDiff")
+    public String getDiff(@RequestBody DiffRequest requestBody) {
+        return githubService.getDiffOfPullRequest(requestBody.getRepositoryName(), requestBody.getPullNumber());
+    }
 }
