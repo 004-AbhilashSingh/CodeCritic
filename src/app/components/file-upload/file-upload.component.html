@@ -1,0 +1,41 @@
+
+<div class="container">
+    <div class="file-upoload-container">
+        <div>
+            <div class="mb-4 p-8">
+                <div>
+                    <p-toast />
+                </div>
+                <p-card>
+                    <p class="m-0">
+                        Upload file containing code. Supported file formats are .py .java .cpp and .js
+                    </p>
+                    <div>
+                        <p-fileupload mode="basic" chooseLabel="Choose" accept=".py, .js, .ts, .java, .cpp" chooseIcon="pi pi-upload" (onSelect)="onUpload($event)" />
+                    </div>
+                </p-card>
+            </div>
+        </div>
+        <div class="upload-button">
+            <p-button label="Upload" severity="secondary" (onClick) = "processFile()" />
+        </div>
+    </div>
+    <div class="code-review-container">
+        <div class="code-container">
+            <p-floatlabel>
+                <textarea rows="30" cols="70" pTextarea [(ngModel)]="code" id="code"></textarea>
+                <label for="code">Pate your code or upload a file</label>
+            </p-floatlabel>
+            <div class="review-button">
+                <p-button label="Review" severity="secondary" (onClick) = "reviewFile()" />
+            </div>
+        </div>
+        @if(showReview){
+            <div class="review-container">
+                <app-review [review]="review"></app-review>
+            </div>
+        }
+    </div>
+    
+    
+</div>

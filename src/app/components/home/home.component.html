@@ -1,0 +1,38 @@
+<div class="user-details">
+    <div class="user-image">
+        <img alt="User" src={{userImageUrl}} />
+    </div>
+    <div class="user-name">
+        {{userName}}
+    </div>
+</div>
+
+<div class="option-container">
+    <div class="option">
+        <p-card [style]="{ overflow: 'hidden' }">
+            <div class="card-image">
+                <img alt="Card" src="images/coding.webp" />
+            </div><br><br>
+            <div class="description-container" (click)="goToCodeUpload()">
+                <h2> File Upload </h2>
+                <p>
+                   Upload you code and get AI powered code review.
+                </p>
+            </div>
+        </p-card>
+    </div>
+    <div class="option">
+        <p-card [style]="{ overflow: 'hidden' }">
+            <div class="card-image">
+                <img alt="Card" src="images/pull-request.webp" />
+            </div><br><br>
+            <div class="description-container" (click)="goToRepositories()">
+                <h2> Pull Request </h2>
+                <p>
+                   Get AI powered code review on your pull request.
+                </p>
+            </div>
+        </p-card>
+    </div>
+    
+</div>

@@ -1,0 +1,9 @@
+<div class="repository-list">
+
+  @for(repository of repositories; track repository){
+    <div class="repository-list-items" (click)="goToPullRequests(repository)">
+        {{repository}}
+    </div>
+  }
+
+</div>
