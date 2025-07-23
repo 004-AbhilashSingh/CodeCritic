@@ -148,4 +148,29 @@ public class GithubService {
         return response.getBody();
     }
 
+    public String addCommentToPullRequest(String url, String comment, String sha) {
+        String commentUrl = url + "/reviews";
+        String token = authenticationService.getAccessToken();
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("accept","application/vnd.github+json");
+        headers.setBearerAuth(token);
+        headers.set("X-GitHub-Api-Version", "2022-11-28");
+        Map<String, Object> body = new HashMap<>();
+        body.put("body", comment);
+        body.put("event", "COMMENT");
+        body.put("commit_id", sha);
+        HttpEntity<Map<String, Object>> entity = new HttpEntity<>(body, headers);
+        ResponseEntity<String> response = restTemplate.exchange(
+                commentUrl,
+                HttpMethod.POST,
+                entity,
+                String.class
+        );
+        if (response.getStatusCode() == HttpStatus.OK) {
+            return "Comment added successfully.";
+        } else {
+            return "Failed to add comment: " + response.getStatusCode();
+        }
+    }
+
 }

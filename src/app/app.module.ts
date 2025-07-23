@@ -10,6 +10,8 @@ import { appConfig } from './app.config';
 import { RepositoryListComponent } from './components/repository-list/repository-list.component';
 import { PullRequestListComponent } from './components/pull-request-list/pull-request-list.component';
 import { PullRequestDiffComponent } from './components/pull-request-diff/pull-request-diff.component';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { ProgressSpinner } from 'primeng/progressspinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,9 @@ import { PullRequestDiffComponent } from './components/pull-request-diff/pull-re
     AppRoutingModule,
     CardModule,
     ButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    ProgressSpinnerModule,
+    ProgressSpinner
   ],
   providers: [...appConfig.providers],
   bootstrap: [AppComponent]

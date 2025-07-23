@@ -1,6 +1,8 @@
 @import "primeicons/primeicons.css";
 
 body {
-    background-image: url('../public/images/background.webp');
+   /* background-image: url('../public/images/background.webp');*/
+    background-color: white;
+    color: black;
     backdrop-filter: blur(8px);
-}
+ }

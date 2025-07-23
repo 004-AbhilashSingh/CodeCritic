@@ -1,1 +1,22 @@
+<p-button (click)="reviewDiff()">Review</p-button>
+@if(reviewGenerated) {
+  <div class="review-container" id="review-container">
+    <h1>AI Review</h1>
+    <h3>Summary</h3>
+    <p>{{review?.summary}}</p>
+    <h3>Key Findings</h3>
+    @for(finding of review?.key_findings; track finding) {
+        <p>{{finding?.issue}}</p>
+        <p>{{finding?.recommendation}}</p>
+    }
+    <h3>Suggested Improvements</h3>
+    @for(improvement of review?.suggested_improvements; track improvement) {
+        <p>{{improvement?.file}}</p>
+        <p>{{improvement?.changes}}</p>
+    }
+    <h3>Recommendation</h3>
+    <p>{{review?.recommendation}}</p>
+    <p-button label="Add Comment" severity="primary" (onClick)="addComment()"></p-button>
+  </div>
+}
 <div #diffContainer class="diff2html-container"></div>

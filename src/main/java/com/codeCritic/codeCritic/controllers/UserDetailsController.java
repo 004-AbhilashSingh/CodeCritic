@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 import java.util.Map;
 
 
@@ -16,11 +15,9 @@ import java.util.Map;
 public class UserDetailsController {
 
     private final AuthenticationService authenticationService;
-    private final GithubService githubService;
 
     public UserDetailsController(AuthenticationService authenticationService, GithubService githubService) {
         this.authenticationService = authenticationService;
-        this.githubService = githubService;
     }
 
     @GetMapping("/getUserName")
@@ -41,28 +38,4 @@ public class UserDetailsController {
         return "";
     }
 
-    @GetMapping("/getUserRepositories")
-    public Object getUserRepositories() {
-        return githubService.getRepositories();
-    }
-
-    @PostMapping("/getUserPullRequests")
-    public Object getUserPullRequests(@RequestBody String repository) {
-        return githubService.getPullRequests(repository);
-    }
-
-    @GetMapping("/getUserOrgs")
-    public Object getUserOrgs() {
-        return githubService.getUserOrgs();
-    }
-
-    @PostMapping("/getOrgRepositories")
-    public Object getOrgRepositories(@RequestBody String orgName) {
-        return githubService.getOrgRepositories(orgName);
-    }
-
-    @PostMapping("/getDiff")
-    public String getDiff(@RequestBody DiffRequest requestBody) {
-        return githubService.getDiffOfPullRequest(requestBody.getRepositoryName(), requestBody.getPullNumber());
-    }
 }

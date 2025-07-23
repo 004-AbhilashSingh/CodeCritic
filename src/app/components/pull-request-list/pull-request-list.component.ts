@@ -15,9 +15,9 @@ export class PullRequestListComponent {
   pullRequests: any[] = [];
   showTable: boolean = false;
 
-constructor(private router: Router) {
-  
-}
+  constructor(private router: Router) {
+    
+  }
 
   async ngOnInit() {
     this.repositories = await this.getUserRepositories();
@@ -110,7 +110,7 @@ constructor(private router: Router) {
       })
     }).then(async (diff) => {
       const diffText = await diff.text();
-      this.router.navigate(['/pullRequestDetails'], { state: { diff: diffText } });
+      this.router.navigate(['/pullRequestDetails'], { state: { diff: diffText, url: pullRequest.url, sha: pullRequest.head.sha } });
     }).catch((error) => {
       console.error("Error in openPullRequest:", error);
     })

@@ -1,5 +1,5 @@
-<div class="pull-request-list">
-  @if(showTable){
+@if(showTable){
+  <div class="pull-request-list">
     <table>
       <tr>
         <th>Repository</th>
@@ -16,5 +16,9 @@
       }
         
     </table>
-  }
-</div>
+  </div>
+} @else {
+  <div class="card flex justify-center">
+    <p-progress-spinner ariaLabel="loading" />
+  </div>
+}
