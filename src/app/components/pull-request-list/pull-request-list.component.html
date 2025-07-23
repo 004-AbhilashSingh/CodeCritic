@@ -1,8 +1,20 @@
 <div class="pull-request-list">
-  @for(pullRequest of pullRequests; track pullRequest) {
-    <div class="pull-request-list-items">
-        {{pullRequest.title}}
-    </div>
+  @if(showTable){
+    <table>
+      <tr>
+        <th>Repository</th>
+        <th>Pull Request Title</th>
+        <th>Status</th>
+      </tr>
+      @for(pullRequest of pullRequests; track pullRequest) {
+        <tr>
+          <td>{{pullRequest.head.repo.name}}</td>
+          <td>{{pullRequest.title}}</td>
+          <td>{{pullRequest.state}}</td>
+          <td><p-button label="Open" severity="primary" (onClick) = "openPullRequest(pullRequest)" /></td>
+        </tr>
+      }
+        
+    </table>
   }
-
 </div>
