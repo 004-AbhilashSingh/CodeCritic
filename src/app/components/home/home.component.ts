@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserDetailsService } from '../../services/user-details.service';
 
 @Component({
   selector: 'app-home',
@@ -12,11 +13,13 @@ export class HomeComponent {
   userName:string = '';
   userImageUrl:string = '';
 
-  constructor(private router:Router) {}
+  constructor(private router:Router, private userDetailService:UserDetailsService) {}
 
   async ngOnInit(){
       this.userName = await this.getUserName();
       this.userImageUrl = await this.getUserImageUrl();
+      const userLogin = await this.getUserLogin();
+      this.userDetailService.setUserName(userLogin);
   }
 
   goToCodeUpload() {
@@ -29,6 +32,21 @@ export class HomeComponent {
 
   getUserName():Promise<string> {
       return fetch('/getUserName',{
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then((response) => {
+        if(response.ok) {
+          return response.text();
+        } else {
+          return "Guest";
+        }
+      })
+  }
+
+  getUserLogin():Promise<string> {
+      return fetch('/getUserLogin',{
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'

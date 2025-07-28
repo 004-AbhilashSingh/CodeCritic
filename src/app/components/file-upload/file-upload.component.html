@@ -20,22 +20,21 @@
             <p-button label="Upload" severity="secondary" (onClick) = "processFile()" />
         </div>
     </div>
-    <div class="code-review-container">
-        <div class="code-container">
-            <p-floatlabel>
-                <textarea rows="30" cols="70" pTextarea [(ngModel)]="code" id="code"></textarea>
-                <label for="code">Pate your code or upload a file</label>
-            </p-floatlabel>
-            <div class="review-button">
-                <p-button label="Review" severity="secondary" (onClick) = "reviewFile()" />
-            </div>
+    <div class="code-container">
+        <p-floatlabel>
+            <textarea rows="30" cols="70" pTextarea [(ngModel)]="code" id="code"></textarea>
+            <label for="code">Pate your code or upload a file</label>
+        </p-floatlabel>
+        <div class="review-button">
+            <p-button label="Review" severity="secondary" (onClick) = "reviewFile()" />
         </div>
-        @if(showReview){
-            <div class="review-container">
-                <app-review [review]="review"></app-review>
-            </div>
-        }
     </div>
+    @if(showReview){
+        <div class="review-container">
+            <app-review [review]="review"></app-review>
+        </div>
+    }
+
     
     
 </div>

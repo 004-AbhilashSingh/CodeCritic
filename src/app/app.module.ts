@@ -7,18 +7,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { appConfig } from './app.config';
-import { RepositoryListComponent } from './components/repository-list/repository-list.component';
 import { PullRequestListComponent } from './components/pull-request-list/pull-request-list.component';
-import { PullRequestDiffComponent } from './components/pull-request-diff/pull-request-diff.component';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
-import { ProgressSpinner } from 'primeng/progressspinner';
+import { ToastModule } from 'primeng/toast';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    RepositoryListComponent,
-    PullRequestListComponent,
-    PullRequestDiffComponent
+    PullRequestListComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +24,7 @@ import { ProgressSpinner } from 'primeng/progressspinner';
     ButtonModule,
     HttpClientModule,
     ProgressSpinnerModule,
-    ProgressSpinner
+    ToastModule
   ],
   providers: [...appConfig.providers],
   bootstrap: [AppComponent]

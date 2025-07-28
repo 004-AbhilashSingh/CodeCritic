@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { ProgressSpinner } from 'primeng/progressspinner';
+import { UserDetailsService } from '../../services/user-details.service';
 
 @Component({
   selector: 'app-pull-request-list',
@@ -15,9 +17,8 @@ export class PullRequestListComponent {
   pullRequests: any[] = [];
   showTable: boolean = false;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private userDetailService: UserDetailsService) {}
     
-  }
 
   async ngOnInit() {
     this.repositories = await this.getUserRepositories();
@@ -110,7 +111,9 @@ export class PullRequestListComponent {
       })
     }).then(async (diff) => {
       const diffText = await diff.text();
-      this.router.navigate(['/pullRequestDetails'], { state: { diff: diffText, url: pullRequest.url, sha: pullRequest.head.sha } });
+      console.log("Logged user is - "+this.userDetailService.getUserName());
+      const isReviewer = pullRequest.requested_reviewers.some((reviewer: any) => (reviewer.login as string).toLowerCase() === this.userDetailService.getUserName().toLowerCase());
+      this.router.navigate(['/pullRequestDetails'], { state: { diff: diffText, url: pullRequest.url, sha: pullRequest.head.sha, isReviewer:isReviewer } });
     }).catch((error) => {
       console.error("Error in openPullRequest:", error);
     })

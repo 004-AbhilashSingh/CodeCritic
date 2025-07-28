@@ -45,6 +45,7 @@ public class GithubController {
         String url = (String) ((Map<?, ?>) requestBody).get("url");
         String comment = (String) ((Map<?, ?>) requestBody).get("comment");
         String sha = (String) ((Map<?, ?>) requestBody).get("sha");
-        return githubService.addCommentToPullRequest(url, comment, sha);
+        boolean approve = (boolean) ((Map<?, ?>) requestBody).get("approve");
+        return githubService.addCommentToPullRequest(url, comment, sha, approve);
     }
 }

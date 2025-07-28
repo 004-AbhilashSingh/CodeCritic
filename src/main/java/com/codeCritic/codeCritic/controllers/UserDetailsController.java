@@ -29,6 +29,15 @@ public class UserDetailsController {
         return "User not authenticated";
     }
 
+    @GetMapping("/getUserLogin")
+    public String getUserLogin() {
+        Map<String, Object> userDetails = authenticationService.getUserDetails();
+        if (userDetails != null && userDetails.containsKey("login")) {
+            return (String) userDetails.get("login");
+        }
+        return "User not authenticated";
+    }
+
     @GetMapping("/getUserImageUrl")
     public String getUserImageUrl() {
         Map<String, Object> userDetails = authenticationService.getUserDetails();

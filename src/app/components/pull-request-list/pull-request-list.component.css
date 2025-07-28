@@ -15,3 +15,46 @@ th{
     border: 1px solid black;
     padding: 5px;
 }
+
+/* filepath: src/app/components/pull-request-list/pull-request-list.component.css */
+.custom-spinner {
+  width: 50px !important;
+  height: 50px !important;
+}
+.p-progressspinner-circle {
+  stroke: #1976d2 !important; /* or any visible color */
+}
+
+/* Loader overlay */
+#loader {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw; height: 100vh;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Spinner animation */
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #eee;
+  border-top: 5px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+#loader p {
+  font-size: 1.25rem;
+  color: #333;
+  font-family: sans-serif;
+}

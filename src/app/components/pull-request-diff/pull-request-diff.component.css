@@ -1,3 +1,37 @@
 .diff2html-container {
+    margin: 20px;;
     color: black;
+}
+
+.pull-request-diff-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.review-button {
+    margin: 20px;
+}
+
+.review-container {
+    margin: 20px;
+    margin-top: 10px;
+    padding: 10px;
+    border: 2px solid black;
+
+    h5 {
+        margin-bottom: 1px;;
+    }
+
+    p {
+        margin-top: 1px;
+    }
+}
+
+.comment-button {
+    display: inline-block;
+}
+
+.approve-button {
+    display: inline-block;
+    margin-left: 10px;
 }
