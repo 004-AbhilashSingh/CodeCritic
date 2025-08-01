@@ -49,7 +49,7 @@ export class FileUploadComponent {
     if(this.code) {
       this._messageService.add({severity: 'info', summary: 'File Review', detail: 'Reviewing the file content...'});
       this.showReview = false;
-      fetch('http://127.0.0.1:8100/llm/review-code',{
+      fetch('https://codecriticengine.onrender.com/llm/review-code',{
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

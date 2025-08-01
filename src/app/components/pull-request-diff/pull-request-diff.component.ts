@@ -50,7 +50,7 @@ export class PullRequestDiffComponent {
   reviewDiff() {
     this.reviewRequested = true;
     this.reviewGenerated = false;
-    fetch("http://127.0.0.1:8100/llm/review-pull-request",{
+    fetch("https://codecriticengine.onrender.com/llm/review-pull-request",{
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
