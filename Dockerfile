@@ -30,5 +30,5 @@ EXPOSE 8080
 ENV PORT=8080
 ENTRYPOINT ["java", \
     "-Dserver.port=${PORT}", \
-    "-Dspring.config.additional-location=file:/config/", \
+    "-Dspring.config.additional-location=/etc/secrets/security.yml", \
     "-jar", "app.jar"]
