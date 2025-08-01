@@ -8,6 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "ci-build": "ng build --configuration production && npm run clean-resources && npm run copy-resources",
+    "ci-build-deploy": "ng build --configuration production && npm run copy-resources",
     "copy-resources": "cp -r dist/code-critic/browser/* src/main/resources/static/",
     "clean-resources": "rm -rf src/main/resources/static/*"
   },
