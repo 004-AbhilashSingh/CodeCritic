@@ -15,7 +15,7 @@ COPY pom.xml .
 COPY src ./src
 
 COPY --from=frontend-build /app/src/main/resources/static ./src/main/resources/static
-RUN mvn clean package -DskipTests
+RUN mvn clean package -DskipTests -Dmaven.compiler.release=21
 
 # Stage 3: Run the app
 FROM eclipse-temurin:21-jre-alpine
